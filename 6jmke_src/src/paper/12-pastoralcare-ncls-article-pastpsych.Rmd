@@ -1,0 +1,258 @@
+---
+title: Who Cares? Exploring Pastoral Care in Dutch Protestant Parishes Using the
+  *Church Life Survey* (CLS)
+author: "Theo Pleizier, Karen Zwijze-Koning, Marten van der Meulen"
+date: June 15, 2021 # this is the submitted version. The final version can be found at the Publisher's website and the personal website(s) of the author(s).
+bibliography: ../../src/paper/12-pastoralcare-ncls-article.bib
+csl: ../../docs/stylesheet_PastoralPsychology/apa.csl
+output:
+  officedown::rdocx_document:
+    reference_docx: ../../docs/stylesheet_PastoralPsychology/reference-doc-pastpsych4.docx
+
+knit: (function(inputFile, encoding) {rmarkdown::render(inputFile, encoding = encoding, output_dir = "../../gen/paper/output") })
+params:
+  printcode: false # or set it to true
+  warningcode: false
+  includecode: true
+  messagecode: false
+
+---
+
+```{r init, echo=FALSE, warning=FALSE, include=FALSE}
+library(officedown)
+library(here)
+
+# set this option in the first code chunk in the document
+knitr::opts_chunk$set(echo = params$printcode,
+                      warning = params$warningcode,
+                      include = params$includecode,
+                      message = params$messagecode)
+
+source(here("src/data-preparation/initialise_dataset.R"))
+```
+
+<!--
+https://www.springer.com/journal/11089/submission-guidelines
+-->
+
+**Abstract** Pastoral care in parishes is a rather silent religious practice. As a result, data regarding the quantity and quality of regular pastoral care in local churches is scarce. To address this deficiency, we added several questions about pastoral care and support to the Church Life Survey (CLS) and then carried out the survey on church attenders (N=2854) from 30 Dutch Protestant parishes. The results show that church attenders mostly receive pastoral care from their minister or professional pastoral worker. Church attenders also frequently advise others in their community to ask for pastoral support. They feel that their congregations should not only pay attention to particularly joyful or painful circumstances but should also direct more pastoral attention towards a general interest in people’s lives. By and large it is acknowledged that pastoral support is done in a competent and safe atmosphere. This study reveals a wide range of quantitative and qualitative insights into the frequency and quality of pastoral care as a religious practice; a practice that is not often discussed, but which is of great importance to church attenders, and which is now a practice that is being given a voice by data. 
+
+**Keywords** Pastoral Care, Church Life Survey (CLS), quantitative research, Protestantism, Church, Congregational Life
+
+# Introduction
+Pastoral care is typically a silent religious practice. Neither pastors nor parishioners talk much about private pastoral conversations. Indeed, pastoral secrecy is an integral part of the profession; the pastor does not talk about what was discussed and thus your story is safe. However, as a result of the confidential nature of pastoral care, little is known about its contribution to the well-being of individual church members, or about its impact on congregational commitment or societal cohesion. How many congregants are pastorally supported by the pastoral staff of churches? How many pastoral visits, counseling trajectories or supportive practices are initiated and practiced by clergy and pastoral volunteers? How do congregants evaluate the pastoral care and support they receive?
+
+Though much has been published on theological theories and psychological methods of pastoral care and counseling, empirical research on pastoral care practices in parishes is scarce. Some studies have inquired into the personal and spiritual traits of pastors and clergy, their self-understanding, and their satisfaction with pastoral ministry [@lee2010; @fallon2015]. However, parishioners’ experiences of pastoral care have not been systematically investigated within a congregational context.
+
+In this article we present the results of a pilot-study that looks for basic patterns in regular pastoral care practices in parishes. The study investigates the number of pastoral care encounters in local churches, whom these encounters are initiated by, and how they are evaluated by parishioners. We collected data through a Dutch version of the Church Life Survey (CLS) to which we added a section covering pastoral care evaluations. CLS is a long-standing method used for research in local churches and is specifically designed for studying the vitality of local churches.[^cls] For instance, it has been used to develop a scale of innovative church culture [@pepper2015; @pepper2018]. In our study the survey was carried out in 30 Protestant parishes  in the Netherlands during the Spring of 2019. Overall, this study represents a first attempt to investigate the frequency and quality of pastoral care practices from the perspective of parishioners.
+
+[^cls]: https://www.ncls.org.au/ (accessed 1-2-2021).
+
+[^parish]: In this article we use the general term 'parish' rather than the specific Reformed term 'congregation'. Parish is more appropriate to denote 'local church' as used in the CLS.
+
+# Researching pastoral care and support in local churches 
+Confidentiality is an important aspect of all caring relationships, and this is evident in health care, psychotherapy and chaplaincy. However, professional privacy in these three domains did not block the development of best practices built on scientific knowledge. In a health-care context, doctor/patient [@angus2012; @oconnor2019] or chaplain/client [@sharma2016; @pesut2016] communication has long been subjected to various studies. There is a growing body of (empirical) research around chaplaincy in prisons, in the armed forces, and at schools [@swift2015]. However, while confidentiality in the pastoral profession does not prevent the generation of knowledge around spiritual and pastoral care in those related professional fields, the empirical study of pastoral care and support in local churches remains disappointingly underdeveloped.
+
+Given this lack of empirical research, the contribution of pastoral care to society as a whole and to congregational life in local churches in particular, remains unknown. The *Church Counts* [@bernts2010] report gives an indication of how widespread pastoral care activities are within churches and expresses this value in terms of a financial contribution to Dutch society. Virtually all the participating churches in the count (97%) are active in pastoral care and diaconal activities (no distinction is made between the two). These activities include visiting the sick, grief counseling, offering financial support for those in need, and providing support to victims of violence. It was estimated that churches reach more than 300,000 individuals through visits every year [@bernts2010, p. 15]. The report extrapolates that churches reach 1.4 million people every year (8% of the population), and that half of them are reached through various pastoral care and diaconal activities. The researchers calculate that by providing pastoral care and diaconal help, churches contribute 0.25 billion Euros to Dutch society [@bernts2010, p. 20]. Two other reports, *Help!* (2014) and *Serve Share Act* (2015), largely confirm this finding. However, while both studies indicate that churches contribute to society in various ways through their activities, an explicit reference to pastoral care and support activities is lacking [@slendebroek-meints2014; @berends2015].
+
+The absence of pastoral care data in Dutch studies is confirmed by international data. The statistical report of the German Evangelical Lutheran Church 2020 mentions pastoral care (German: *Seelsorge*) several times, but that is mostly  in reference to special chaplaincy services [@ekd2020]. While the Anglican annual report (Church of England) presents information on church (and cathedral) attendance, parish finances, and clergy (ministry), it lacks facts and figures on pastoral care and support.[^cofe] Finally, in the 2015 report of the *National Congregations Study*[^ncs] (United States), pastoral care is mentioned briefly as one of the areas that religious professionals can specialize in, and as one of the three activities that congregations should mainly focus on; the others being religious education and worship. Yet worship activity receives the most attention from the researchers [@chaves2015].
+
+<!--
+From NCS codebook, variables that concern pastoral care:
+- PTSCARE: number of specialised part-time ministerial staff specialise in pc
+- FTSCARE: number of specialised full-time ministerial staff specialise in pc
+-->
+
+[^ekd]: https://www.ekd.de/ekd-statistik-22114.htm (accessed 9-2-2021).
+[^cofe]: https://www.churchofengland.org/more/policy-and-thinking/research-and-statistics (accessed 9-2-2021).
+[^ncs]: The report can be found here: http://www.soc.duke.edu/natcong (accessed 9-2-2021), with a fourth wave (2018-2019) report coming soon. Pastoral care is put into the larger category of care-giving activities, like providing support, such as food, housing etc.
+
+In this article we explore a method to address the current deficiency of facts and figures around pastoral care practices in local churches.
+
+The data in this study have been collected in congregations that belong to the Protestant Church in the Netherlands (PCN). The CLS survey served as instrument for data collection. This instrument was chosen for two reasons: it is a well-tested survey for researching church vitality and it is one of the very few instruments that measure attitudes of church attenders. The survey was pretested in the Dutch context by Erwich [-@erwich2013]. Following Erwich’s conclusion that CLS fits well in the Dutch context, we changed a few minor issues in the survey regarding details of the translation and a few cultural differences.  
+
+One of the other goals of this pilot study was to develop questions that would adequately measure pastoral care within the local church. CLS does not contain a specific section on pastoral care. Therefore, we added a set of questions on pastoral care to the existing CLS, focusing on the quantity and quality of pastoral care practices from the perspective of parishioners (see appendix A). 
+
+These questions on pastoral care are based upon three theoretical assumptions with respect to pastoral care in parishes. First, several proposals have put pastoral care within the system of a community of faith [@drechsel2015; @patton2005]. Likewise, Avis argues that the parish can be understood as 'a defined and structured community of people, for whom he or she (i.e. the pastor) has pastoral responsibility' [@avis2004, p. 194]. Therefore, we view pastoral care as an expression of a local Christian community. Accordingly, CLS helps to bring into focus the relationship between pastoral care and the local church.  
+
+Further, the new set of questions reconstructs pastoral care from four perspectives. 1. a *relationship* perspective: respondents indicate what kind of pastoral relationships have shaped pastoral contact in the last two years; 2. a *recipient* perspective: parishioners are asked whether they have been approached for care by a pastor; 3. a *community* perspective: parishioners are asked whether they referred others to pastoral care; and 4. an *evaluative* perspective: parishioners are invited to rate statements on the atmosphere and spiritual interest in pastoral care and they are asked to indicate what pastoral topics need more attention in their local church. 
+
+Finally, this pilot study approaches pastoral care from a ‘go’-paradigm of parish care as suggested by Drechsel [-@drechsel2015]. Drechsel distinguishes between pastoral care in the mode of 'coming' (pastoral care as requested by a parishioner, they ‘come’ to the pastor) and a mode of 'going' (pastoral care as offered by church leadership, pastors ‘go’ to parishioners).  The 'go' paradigm departs from the initiative of the pastor, an approach that fits the overall intention of CLS. 
+
+# Research question
+
+The analysis of the data is guided by a central research question: 'How do church attenders perceive and evaluate pastoral care and support in their local church?' The following sub-questions are also asked: (1) How many church attenders receive pastoral care and by whom? (2) Which groups of parishioners are approached by the church for pastoral care and support? (3) What sort of situations or circumstances do parishioners feel pastoral attention should be directed towards? (4) How do church attenders evaluate pastoral care and support? 
+
+# Methodology 
+
+## Sample selection: church attenders and local churches
+In the first half of 2019 data were gathered for the Netherlands Church Life Survey Project (NL-CLS). NL-CLS is the Dutch version of the Australian Church Life Survey. The participants in this pilot study were selected from the Protestant Church in the Netherlands (PCN). After the pilot study was announced within the PCN, 40 churches expressed their interest in taking part in it. We strategically selected 30 small to medium-sized churches to stay within the financial boundaries of the pilot study and to ensure the inclusion of churches with different protestant theological backgrounds. All 30 participating churches volunteered to administer the NL-CLS survey during either a Sunday morning worship service or at another communal religious gathering.
+
+Based on this selection procedure, we cannot assume that the pilot study sample is representative of the entire PCN. Representativity of the dataset is hard to establish due to a lack of reliable statistics in the PCN. Yet our study on church attenders shows strong overlap with types of respondents in the LISS-panel[^liss]. There is a slight over-representation in our study of weekly attenders and 65+ years old church attenders, but the distributions of marital status and work situation are representative for the Dutch church attending population.
+
+[^liss]: The LISS-panel is a representative sample of Dutch individuals who participate in monthly Internet surveys. The LISS-panel is a dataset hosted by CentERdata (Tilburg University). See https://www.lissdata.nl/ (accessed 14-6-2021).
+
+This study serves as a pilot study for a larger research project that will start in 2021. 
+
+## Data collection
+The local churches that took part in the pilot were briefed about how they should distribute and retrieve the survey forms in line with privacy regulations. In March 2019, the pilot churches administered the survey. This was generally done before, during, or after their worship service. Each congregation had a small team taking care of the logistics locally. We briefed every team with general information about how they could introduce the survey: we explained that the survey was meant as part of a process of listening to each other, that everybody was invited to fill in a form, but that nobody was obliged to do this.
+
+While most participants filled out the survey after the morning service, some did complete the questionnaire online (360 instances). This was allowed to ensure that even church members who were absent during the NL-CLS administration process had the chance to express their opinions. We found no significant differences between answers when compared between methods of data collection. All completed forms were returned to the Protestant Theological University (PThU) where they were then scanned. These scanned forms were sent to NCLS Research Australia, who in turn provided us with 30 infographics representing the profiles of the churches that participated in the study. These profiles were then sent to the participating churches so that they could see their own results. NCLS Research Australia provided the PThU with a dataset of the sample. This article is based upon that full dataset.
+
+## Description of respondents
+In total, 2854 church attenders participated in this NL-CLS pilot study in the Netherlands, 1611 of them were female (57%) and 1203 were male (43%). There were no significant differences between the local churches based on gender ($Χ^2$ = 33,773, df = 29, *p* =.248). The mean age of the respondents was 64 years (*SD* = 17,1), with the youngest participant being 9 years old and the eldest participant 96 years old. The churches did differ in age distribution F(29, 2275) = 13.7, *p* = .000. Within one local church the average age of the participants was 44 years old whereas within another church the average age was 73 years old. Most participants had been going to church services at their local churches for more than 20 years (N = 1905), and typically attended church services at their local church 2 or 3 times a month or weekly (N = 2343). The questions on pastoral care were answered by 2619 respondents; the 8.2% non-response does not significantly influence the mean age or the gender distribution.
+
+
+## Pastoral care data
+CLS investigates the worship experience of church attenders, the level of engagement with the local church, individual religious practices, and church leadership. However, until now  the survey did not specifically address the topic of pastoral care and support.
+
+The survey’s layout is flexible enough to include specifically designed modules with new questions. Therefore, questions were added to the standard CLS format regarding the frequency with which church attenders received pastoral care, the situations in which pastoral attention was given, and by whom the pastoral care and support was offered. Four statements were added to investigate: the atmosphere in which the pastoral care was done, the interest in spirituality by pastoral workers, and to what extent pastoral care was directed towards discipleship. These statements were measured on a 5-point Likert-scale of agreement with 1 ‘strongly agree’ and 5 ‘strongly disagree.’[^appendix] The pilot study enabled us to test the new set of questions.
+
+[^appendix]: Appendix A provides a full overview of the module with newly designed questions.
+
+
+
+
+# Results
+
+## Types of pastoral care and support
+In total, 2619 church attenders answered the question about whether they had received pastoral care and support in their own local church in the last 2 years. Most participants pointed out their minister or professional pastoral worker as the person from whom they most frequently received pastoral care and support (40.4%; see Table 1). In addition, church attenders indicated that they received pastoral care from an elder or staff member of their congregation (18.7%). Parishioners also look to family and friends for informal pastoral support (17.1%). A small number of participants (4.6%) indicated that they wished they had received pastoral care but that they did not get this support. Finally, 38.7% of the respondents indicated that they did not need pastoral care or support in the last two years.
+
+```{r table q56, echo=FALSE, tab.cap="**Table 1.** Types of pastoral care and support.", tab.width = "100%"}
+
+source(here("src/analysis/table1_q56.R"))
+
+table1
+
+```
+
+A more detailed analysis reveals that 58% of the respondents report only one type of pastoral contact (N=856), and that 57% of those are talks with the minister (N=485). Further, in almost all the cases that report more than one pastoral contact, the minister is the primary conversation partner (89-100%). 
+
+## Referred to and approached for pastoral care
+We asked respondents whether they had referred anyone else for pastoral support or whether they had received a pastoral visit themselves in the last two years. An analysis shows that 779 respondents have referred someone else to their minister, an elder, or pastoral volunteer, etc. (30%). This indicates that referring fellow parishioners for pastoral support is not unusual.
+
+```{r q58-age, echo = FALSE, tab.cap = "**Table 2.** Background data for those approached for a pastoral visit.", out.width = '100%'}
+
+source(here("src/analysis/table2-3_q58.R"))
+
+table2
+
+```
+In total, 937 respondents indicated that they had been approached for a pastoral visit in the past two years (36%). We wanted to know which members were approached and thus we analyzed the background data of the approached church attenders (Table 2). The analysis shows that churches pay little attention to members in the  0-29 year old age bracket. Moderate attention is given to those in the 30-79 year old age range, and intensive pastoral support is given to members above the age of 80. In most age-groups (30-79 year olds), more than a third of church attenders receive pastoral care (percentages range between 33.5% and 37.4%). However, within the 80+ age group this percentage rises to 50.8%; this is the age group that receives the most pastoral attention in these churches.
+
+We also looked at the marital status and work situation of respondents and found that those who were never married (singles), and those who remarried after being widowed, receive relatively little pastoral attention. Furthermore, students clearly report a lower level of pastoral attention (14.2%). Thus, it may be concluded that singles and students seem to be less on the radar of pastoral workers.
+
+Table 3 (below) presents the length of church attendance and the sense of belonging felt by respondents approached for a pastoral visit. Interestingly, church attenders that are new to the congregation are most approached for a pastoral visit (48.6%). This highlights the  attention churches pay to newcomers in their congregations.
+
+
+```{r q58-attendance, echo = FALSE, tab.cap = "**Table 3.** Attendance length and sense of belonging for those approached for a pastoral visit.", out.width = '100%'}
+
+source(here("src/analysis/table2-3_q58.R"))
+
+table3
+
+```
+
+## Desire for Pastoral Attention
+Respondents were also asked to indicate which areas they felt their church should give more pastoral attention to (see table 4 below).
+
+```{r q59, echo = FALSE, tab.cap = "**Table 4.** Desire for Pastoral Attention.", out.width = '100%'}
+
+source(here("src/analysis/table4_q59.R"))
+
+table4
+
+```
+Firstly, respondents indicate that churches should give more pastoral attention to members’ everyday lives. A general interest in people’s lives is mentioned most often (1121 times). Secondly, they indicate that more pastoral attention should be given to members who experience difficult circumstances such as illness, stress, or the loss of a loved one (grief). 
+
+Next, a cluster of answers is mentioned that includes guidance in faith and spirituality, joyful occasions such as the birth of a child, and special groups within the community such as children (all mentioned around 300 times or more). Guidance in areas such as relationships or in ethical dilemmas is mentioned almost 200 times. Respondents hardly mention the need to hold members accountable for their behaviour.
+
+Finally, in the ‘other’ category, respondents mention their satisfaction with the current pastoral care that is given within their communities: “*everyone is doing what they can*,” and “*a lot is already being done*.” Elderly people are mentioned as a group, as are church members that currently live in retirement homes. ‘*Loneliness*’ is mentioned as a personal state of mind that needs pastoral care and attention. Other groups that are mentioned are: “*members who have lost their spouse*” and “*members who don’t come to church services anymore*” (because they do not feel involved in the community).
+
+## Evaluations of pastoral care and support
+Several aspects of pastoral care were evaluated through more detailed statements regarding the attitude of pastoral workers and the atmosphere within which pastoral care takes place.
+
+```{r evaluation, echo = FALSE, tab.cap = "**Table 5.** Descriptives and correlations for evaluations of pastoral care and support.", tab.width = "100%"}
+
+source(here("src/analysis/table5_pce.R"))
+
+table5
+
+```
+Most members feel that pastoral care within their church community is done in a competent and safe atmosphere (*M* = 3.86). It is felt that pastoral workers also show a clear interest in the spiritual life of members and relatives (*M* = 3.63). A specific Christian understanding of pastoral care as directed towards guidance in the Christian life (*discipleship*) is positively evaluated by the respondents (*M* = 3.52). To the least degree respondents indicate that pastoral care is for those in crisis/with problems. In hindsight, this item is more an opinion concerning the specific groups that pastoral care is meant for, rather than an evaluation of that care. In a reliability analysis of all the statements this item had to be removed to improve the alpha score, thus indicating the different scope of this statement. After the removal of this item the construct of ‘*Pastoral Care Evaluation*’ was created and reached an acceptable level of Cronbach’s alpha (α = 0.736).
+
+A first exploration of this construct reveals that church members who were approached for a pastoral visit in the past two years evaluate pastoral care significantly more positively (M = 2,87, SD = .600) than those who did not receive such a visit (*M* = 2,56, *SD* =.620; Levene’s t-test of equal variance assumed t=-12,321, df. 2611, *p* < .000). Secondly, we looked at whether the evaluation of the construct differs per church and we found that it does. The way pastoral care and support is evaluated differs significantly per church (ANOVA), F(29, 2654) = 8.197, *p* < .000, see also Figure 1 below).
+
+```{r pc-churches, echo = FALSE, fig.cap = "The pastoral care and support evaluation construct plotted for each church.", out.width = '100%'}
+
+source(here("src/analysis/plot1_pce-churches.R"))
+
+plot1
+
+```
+
+Next, we constructed a measure of actual experiences with pastoral care by combining two indicators: (1) did a respondent mention any type of pastoral care and support in the last two years? (see table 1 above); and (2) was a respondent approached for pastoral care? (see table 2 above). Thus, three levels of actual experience with pastoral care were constructed: ‘none’ (no actual contacts at all); ‘some’ (either reported pastoral conversation(s) or being approached for a visit); and ‘various’ (reported pastoral conversations and being approached for pastoral care). We found that church attenders that scored ‘various’ on actual experience with pastoral care, evaluate pastoral care and support significantly more positively than those who do not report experiencing pastoral contact within the church (“none” on actual experience with pastoral care) (ANOVA), F(2, 2352) = 145.8, *p* < .000). This demonstrates that pastoral care and support is evaluated more positively when respondents have actual experiences with pastoral care (see Figure 2 below).
+
+```{r pc-actualcare, echo = FALSE, fig.cap = "The pastoral care and support evaluation construct plotted in relation to actual pastoral care experiences.", out.width = '100%'}
+
+source(here("src/analysis/plot2_apc.R"))
+
+plot2
+
+```
+
+This finding may suggest an explanation for the differences in the evaluation of pastoral care between the churches. It seems that parishioners evaluate pastoral care more positively when churches are more active in pastoral care.
+
+# Discussion and Conclusion
+In this article we examined how church attenders experience pastoral care and support as part of ordinary congregational life. We evaluated the merits and restrictions of several aspects of pastoral care practices, and addressed questions such as: what types of parishioners receive pastoral care, how is pastoral care evaluated by congregants who receive a pastoral visit, and how are actual experiences with pastoral care related to the evaluation of that care? Questions such as these have long been left unanswered but are now answered from the perspective of church attenders using CLS data.
+
+The first thing that stands out from this study is that referring someone else to pastoral care and receiving pastoral support oneself, are both common parts of congregational life. Pastoral care is embedded in the community: pastors visit parishioners regularly and parishioners care for each other’s well-being by encouraging others to receive support. The importance of these practices cannot be underestimated. The attention that is given to parishioners by these pastoral visits strengthens parishioners’ well-being and sense of community. In addition, parishioners are supported in their understanding of faith related issues.
+
+Our study shows that in almost all cases the professional worker is responsible for the pastoral visits. This highlights the importance of professional pastoral ministry. However, this also indicates that pastoral care is a vulnerable practice. When a professional staff member is not available to visit parishioners (e.g. due to illness, work overload, or a change of parish), the amount of pastoral attention given will swiftly decline. In such cases, parishioners must rely on the more informal sources of support that are available to them: family and friends.
+
+We found that pastoral care and support is mostly received by the elderly in the community. The elderly are often longstanding congregational members; they belong to the group of parishioners that may experience a higher level of loneliness, and they are often visited because of illness or other types of physical or psychological circumstances. An important Christian pastoral practice is to help believers to prepare for death. This is another reason why the pastor is asked to give more pastoral attention to the elderly in Christian communities. At the same time, the current societal interest in healthy aging will also have implications for age and spirituality in pastoral care practices [@mackinlay2017].
+
+Neither students nor singles are high on the agenda when it comes to receiving pastoral care, but surprisingly newcomers are. While there were relatively few newcomers in the research sample, more than half of them had been paid a visit recently. This leaves us wondering whether pastoral care and attention may encourage newcomers to explore the church services of these parishes and to perhaps even join the community. Such a perspective is certainly in line with the views of Paul Avis, who stresses the importance of local churches offering pastoral care to those who live within the parish-boundaries. Avis claims that in this way “the provision of pastoral care is an instrument of mission” [@avis2004, 193]. This finding invites to a further deepening of pastoral theology in relation to the mission of the church. 
+
+An equally remarkable finding in our study is the desire of church members to redirect pastoral attention towards a more general interest in people’s everyday lives. In pastoral literature, the focus is often on counseling and crisis-care. The finding that ‘*an interest in everyday life*’ is strongly wished for in pastoral care, points to the importance of ‘regular pastoral care practices.’ This finding connects to pastoral approaches that stress the significance of being with parishioners in everyday life circumstances [@hauschildt1996]. It also connects to the reassessment of classic church practices as stated by Andrew Purves and others [@purves2001]: pastoral care is offered by the church to guide people in their everyday existence in practicing a life of faith.
+
+Finally, we found that church attenders are positive about pastoral care. They feel that pastoral care is done in a competent and safe environment and that pastoral workers show an interest in their spiritual lives and those of their families. In addition, we learned that church members who have actually received pastoral care and support in the past two years are more positive about the overall evaluation of that care within the community. Thus, it can be tentatively concluded that pastoral care activity is an important aspect of fostering the vitality of parishes.
+
+# Limitations and Future Research
+In this study we developed and tested several statements designed to evaluate pastoral care and support in local churches. CLS contains many questions concerning faith related matters, diaconal and leadership issues and missionary outreach activities. There is ample potential for relating the many items in CLS to the newly developed questions on pastoral care and support. Yet it would go beyond the scope of this article to investigate all the possible relationships between the pastoral care part of the survey and the other church-life topics.
+
+Secondly, the evaluative statements on pastoral care in this pilot study are far from complete. Future research should be directed at developing questions that evaluate pastoral care practices in a clear and concise way. This should be done at different levels: at an individual level in which individual care contacts are evaluated in retrospect, and at a more congregational level in which pastoral care is evaluated as a specific care practice. Revised statements regarding this pastoral care activity should be developed and tested to warrant the sufficient content validity of the evaluative construct. 
+
+Next, data on the regional context (urban or rural) or denominational background of the churches were gathered in a another survey that was administered to parish representatives only (N=30). Our study, however, contains representative data for individual Dutch church attenders and is not representative on the level of PCN churches. The differences between churches on the means of the pastoral care evaluation construct (figure 1) indicate that further research in this direction might be promising. 
+
+Further, the interaction between professional pastoral care and mutual pastoral care in parishes needs careful study [@vries2019]. We already started to adapt the module on pastoral care questions for a new round of data collection and have now included questions about mutual pastoral care within parishes. 
+
+In conclusion, we advise that the findings of this study be compared with other denominations and cultures to build a stronger empirical basis for pastoral theology as well as for pastoral care practices in parishes and local religious communities. 
+
+# Acknowledgements
+This pilot study was financed by three parties: the Maatschappij van Welstand, the Protestant Church (PCN), and the Protestant Theological University (PThU). We thank all three parties for their confidence in, and financial contributions to, this pilot project. The authors have benefited from feedback by Ruth Powell, Miriam Pepper, and the rest of the NCLS Research Australia team, and from helpful insights regarding statistical details and the current pastoral situation in the PCN by Ronald Bolwijn and Theo Hettema (PCN church office). Joris Kregting from KASKI pointed us to data available in the LISS panel. Statistical analyses were carried out using R 4.1.0 [@rcoreteam2021].
+
+# Appendix A: Module with questions added to the Dutch version of the Church Life Survey (NL-CLS)
+
+*Question 56*: Have you received pastoral care and support in your church in the last 2 years? Yes, I met with... (Mark all that apply). Answer options: A minister or pastoral worker; One of the elders [staff members]; A pastoral volunteer in this church; Pastoral help outside this church (including digital help); Professional help e.g. counselor, psychologist; Other person/s, such as family and friends; No, but I wish I had; No, and I did not need to.
+
+*Question 57*: Have you referred anyone else to any of the above in the last 2 years to receive pastoral support? Answer options: Yes; No.
+
+*Question 58*: Have you been approached by anyone from your church for a pastoral visit during the last 2 years? Answer options: Yes; No.
+
+*Question 59*: This church should give more pastoral attention in person to ... (mark at most 2). Answer options: Joyful (family) occasions e.g. birth of a child, anniversary etc.; Painful circumstances e.g. illness, stress, grief; Guidance in relationships; Guidance in faith and spirituality; Guidance in ethical dilemmas; Special  groups, e.g. children, professionals; Those who need to be called to account for their behaviour; A general interest in people’s lives; Other, namely: (write response here).
+
+*Question 60*: Which of the following most closely characterizes the pastoral care situation in your church? Pastoral care ... Answer options: is available only when urgently needed; is mostly available; is always offered and available; Don’t know.
+
+Do you agree or disagree with the following statements? (Mark one box on EACH line) Answer options: Strongly agree; Agree; Neutral/Unsure; Disagree; Strongly disagree.
+
+*Question 61*: The pastoral workers (pastor, elders, volunteers) in this church show an interest in my spiritual life and in the spiritual life of my family.
+
+*Question 62*: Pastoral care in this church is done in a competent and safe atmosphere.
+
+*Question 63*: Pastoral care in this church is directed towards discipleship and holiness.
+
+*Question 64*: Pastoral care is meant for those who experience a crisis or have problems in their lives.
+
+
+# References
